@@ -4,6 +4,7 @@ import '../styles/App.css'
 import { Link, useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar/Navbar'
 import axios from 'axios'
+import { backendUrl } from '../config/cfg'
 
 
 
@@ -22,7 +23,7 @@ export default function ForgotPassword() {
     const resetButtonHandler = () => {
         axios({
             method: 'post', 
-            url: 'https://tikitz-v2.adaptable.app/rizqi/auth/forgot-password',
+            url: `${backendUrl}/rizqi/auth/forgot-password`,
             data: {
                 email
             }

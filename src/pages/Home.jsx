@@ -7,6 +7,7 @@ import '../styles/Home.css'
 import '../styles/Home.mobile.css'
 import axios from 'axios'
 import Joi from 'joi'
+import { backendUrl } from '../config/cfg'
 
 function Home() {
 
@@ -37,7 +38,7 @@ function Home() {
     const ctaButtonHandler = () => {
         axios({
             method: 'post',
-            url: 'https://tikitz-v2.adaptable.app/rizqi/auth/cta',
+            url: `${backendUrl}/rizqi/auth/cta`,
             data: {
                 email: ctaValue
             }
@@ -62,12 +63,12 @@ function Home() {
 
                 const nowShowingMovies = await axios({
                     method: 'get',
-                    url: 'https://tikitz-v2.adaptable.app/rizqi/movie/now-showing'
+                    url: `${backendUrl}/rizqi/movie/now-showing`
                 })
 
                 const upcomingMoviesByMonth = await axios({
                     method: 'get',
-                    url: `https://tikitz-v2.adaptable.app/rizqi/movie/upcoming/${currentMonth}`
+                    url: `${backendUrl}/rizqi/movie/upcoming/${currentMonth}`
                 })
 
                 setMovie(nowShowingMovies.data.data)
@@ -84,7 +85,7 @@ function Home() {
         const slug = selectedMonth
         axios({
             method: 'get',
-            url: `https://tikitz-v2.adaptable.app/rizqi/movie/upcoming/${slug}`
+            url: `${backendUrl}/rizqi/movie/upcoming/${slug}`
         }).then(
             movies =>
                 setUpcoming(movies.data.data)

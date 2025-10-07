@@ -4,6 +4,7 @@ import '../styles/App.css'
 import { Link, useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar/Navbar'
 import axios from 'axios'
+import { backendUrl } from '../config/cfg'
 
 
 
@@ -24,7 +25,7 @@ export default function Register() {
     const registerButtonHandler = () => {
         axios({
             method: 'post', 
-            url: 'https://tikitz-v2.adaptable.app/rizqi/auth/register',
+            url: `${backendUrl}/rizqi/auth/register`,
             data: {
                 email,
                 password,

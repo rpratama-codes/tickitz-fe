@@ -4,6 +4,7 @@ import '../styles/App.css'
 import { Link, useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar/Navbar'
 import axios from 'axios'
+import { backendUrl } from '../config/cfg'
 
 export default function Login() {
 
@@ -19,7 +20,7 @@ export default function Login() {
     const signButtonHandler = () => {
         axios({
             method: 'post', 
-            url: 'https://tikitz-v2.adaptable.app/rizqi/auth/login',
+            url: `${backendUrl}/rizqi/auth/login`,
             data: {
                 email,
                 password

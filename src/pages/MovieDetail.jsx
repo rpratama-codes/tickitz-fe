@@ -7,6 +7,7 @@ import { Player } from '@lottiefiles/react-lottie-player'
 import '../styles/MovieDetail.css'
 import '../styles/MovieDetail.mobile.css'
 import '../styles/App.css'
+import { backendUrl } from '../config/cfg'
 
 const MovieDetail = () => {
 
@@ -23,12 +24,12 @@ const MovieDetail = () => {
         try {
             const detail = await axios({
                 method: 'get',
-                url: `https://tikitz-v2.adaptable.app/rizqi/movie/detail/${slug}`
+                url: `${backendUrl}/rizqi/movie/detail/${slug}`
             })
 
             const cinemas = await axios({
                 method: 'get',
-                url: `https://tikitz-v2.adaptable.app/rizqi/movie/${slug}/cinemas`
+                url: `${backendUrl}/rizqi/movie/${slug}/cinemas`
             })
 
             setMovieStatusCode(detail.status)
