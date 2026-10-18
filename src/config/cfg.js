@@ -1,1 +1,1 @@
-export const backendUrl = 'https://tickitz-be-v2-rpratama-codes5416-55w0i92b.leapcell.dev'
+export const backendUrl = 'https://api.tickitz.rpratama.web.id'
